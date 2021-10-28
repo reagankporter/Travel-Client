@@ -29,7 +29,7 @@ const Auth = (props) => {
              event.preventDefault();
             let reqBody = login ?
             {
-            email: email,
+            userName: userName,
             password: password,
         }:
         {
@@ -58,7 +58,7 @@ const Auth = (props) => {
             <br/>
             <h1>{title()}</h1>
             {signupFields()}
-            <label htmlFor="email">Email</label>
+            <label htmlFor="username">User name</label>
             <br/>
             <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
             <br/>
