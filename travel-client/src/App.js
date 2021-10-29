@@ -3,6 +3,13 @@ import './App.css';
 import Auth from './Components/Auth/Auth'
 import Journal from './Components/Journals/Journals'
 
+import Footer from "./Components/Site/Footer";
+import Header from "./Components/Site/Header";
+import Sidebar from "./Components/Site/Sidebar";
+import {
+  BrowserRouter as Router
+} from 'react-router-dom';
+
 function App() {
   const [sessionToken, setSessionToken] = useState(undefined);
 
@@ -28,6 +35,11 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
+      <Router>
+        <Sidebar />
+      </Router>
+      <Footer />
       {/* <h1>This is a test</h1>
       {sessionToken} */}
       {/* <Navbar clearLocalStorage={clearLocalStorage} /> */}
