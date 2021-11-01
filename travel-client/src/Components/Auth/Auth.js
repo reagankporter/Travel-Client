@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import './auth.css';
-
 const Auth = (props) => {
-
-    const [userName, setUserName]= useState('');
+    const [username, setUsername]= useState('');
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
     const [login, setLogin]= useState(true);
@@ -15,27 +13,32 @@ const Auth = (props) => {
         setLogin(!login)
         setEmail('');
         setPassword('');
-        setUserName('');
+        setUsername('');
     }
-         const signupFields = () => !login ?
-         (
-             <div>
-            <label htmlFor="userName">User Name:</label>
+const signupFields = () => !login ?
+(
+            <div>
+            <label htmlFor="email">Email:</label>
             <br/>
-            <input type="text" id="userName" value={userName} onChange={(e) => setUserName(e.target.value)}/>
-             </div>
-         ) : null;
-         const handleSubmit = event => {
-             event.preventDefault();
+            <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            </div>
+        ) : null;
+        const handleSubmit = event => {
+            event.preventDefault();
             let reqBody = login ?
             {
-            userName: userName,
-            password: password,
+                user: {
+                    username: username,
+                    password: password,
+                }
         }:
         {
-          userName: userName,
-          email: email,
-          password: password
+            user: {
+                username: username,
+                email: email,
+                password: password
+            }
+
         }
         let url = login ?
         'http://localhost:3000/user/login':
@@ -50,24 +53,25 @@ const Auth = (props) => {
         .then(response => response.json())
         .then(json => props.updateLocalStorage(json.token))
         .catch(err => console.log(err))
-         }
+    }
     return(
         <div>
         <form>
-            <button type="button" onClick={loginToggle}>Login / Signup Toggle</button>
-            <br/>
             <h1>{title()}</h1>
             {signupFields()}
-            <label htmlFor="username">User name</label>
+            <label htmlFor="username">User Name</label>
             <br/>
-            <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
             <br/>
             <label htmlFor="password">Password</label>
             <br/>
             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <br/>
+            <button type="button" onClick={loginToggle}>Login / Signup Toggle</button>
             <br/>
             <button type="submit" onClick={handleSubmit}>Submit</button>
         </form>
         </div>
     )}
 export default Auth;
+
