@@ -41,7 +41,6 @@ const Auth = (props) => {
                 email: email,
                 password: password
             }
-          
         }
         let url = login ?
         'http://localhost:3000/user/login':
