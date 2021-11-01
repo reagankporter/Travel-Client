@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './auth.css';
 
 const Auth = (props) => {
+    console.log(props);
 
     const [username, setUsername]= useState('');
     const [email, setEmail]= useState('');
@@ -42,6 +43,7 @@ const Auth = (props) => {
                 password: password
             }
         }
+        console.log(login);
         let url = login ?
         'http://localhost:3000/user/login':
         'http://localhost:3000/user/register';
@@ -53,7 +55,11 @@ const Auth = (props) => {
             })
         })
         .then(response => response.json())
-        .then(json => props.updateLocalStorage(json.token))
+        .then(data => {
+            console.log(data);
+            let token = data.sessionToken;
+            localStorage.setItem('SessionToken', token);
+        })
         .catch(err => console.log(err))
          }
     return(
@@ -69,8 +75,8 @@ const Auth = (props) => {
             <br/>
             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <br/>
-            <button type="button" onClick={loginToggle}>Login / Signup Toggle</button>
-            <br/>
+            <button type="button" onClick={loginToggle}>Login / Signup </button>
+
             <button type="submit" onClick={handleSubmit}>Submit</button>
         </form>
         </div>
