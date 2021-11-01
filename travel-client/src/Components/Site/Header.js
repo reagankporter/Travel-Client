@@ -12,7 +12,7 @@ const Header = () => {
     return(
         <header>
             <Navbar className='header'>
-                <NavbarBrand href='/'><br /><h1>This Is The Travel Planning App Header</h1><br /></NavbarBrand>
+                <NavbarBrand href='/'><br /><h1>Welcome To the Dynamic Travel App</h1><br /></NavbarBrand>
                 <Nav className='ml-auto' navbar>
                     <NavItem>
                         {/* <NavLink href='https://github.com/reagankporter/Travel-Client'>

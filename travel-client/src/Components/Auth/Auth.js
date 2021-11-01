@@ -15,16 +15,16 @@ const Auth = (props) => {
         setPassword('');
         setUsername('');
     }
-const signupFields = () => !login ?
-(
+            const signupFields = () => !login ?
+            (
             <div>
             <label htmlFor="email">Email:</label>
             <br/>
             <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            </div>
+        </div>
         ) : null;
         const handleSubmit = event => {
-            event.preventDefault();
+        event.preventDefault();
             let reqBody = login ?
             {
                 user: {
@@ -38,7 +38,6 @@ const signupFields = () => !login ?
                 email: email,
                 password: password
             }
-
         }
         let url = login ?
         'http://localhost:3000/user/login':
@@ -53,7 +52,7 @@ const signupFields = () => !login ?
         .then(response => response.json())
         .then(json => props.updateLocalStorage(json.token))
         .catch(err => console.log(err))
-    }
+}
     return(
         <div>
         <form>
