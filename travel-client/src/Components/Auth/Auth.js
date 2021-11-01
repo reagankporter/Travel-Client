@@ -28,17 +28,18 @@ const Auth = (props) => {
          const handleSubmit = event => {
              event.preventDefault();
             let reqBody = login ?
+
             {
-                user:{
-            username: username,
-            password: password,
+                user: {
+                    username: username,
+                    password: password,
                 }
         }:
         {
             user: {
-          username: username,
-          email: email,
-          password: password,
+                username: username,
+                email: email,
+                password: password
             }
         }
         let url = login ?
