@@ -2,8 +2,9 @@ import React from 'react';
 import './bucketList.css';
 
 const DisplayBucketList = (props) => {
+    
     return(
-        <>
+        <div>
         {props.bucketList.map((item, key) => {
             return(
                 <tr key={key}>
@@ -14,7 +15,7 @@ const DisplayBucketList = (props) => {
                 </tr>
             )
         })}
-        </>
+        </div>
     )
 };
 

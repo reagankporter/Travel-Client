@@ -24,7 +24,7 @@ const Sidebar = () => {
                     <Route exact path='/login'><Login /></Route>
                     <Route exact path='/home'><Home /></Route>
                     <Route exact path='/journals'><Journals /></Route>
-                    <Route exact path='/buskerList'><BucketList /></Route>
+                    <Route exact path='/busketList'><BucketList /></Route>
 
                     <Route exact path='/'><Home /></Route>
                 </Switch>
