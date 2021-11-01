@@ -38,10 +38,25 @@ const BucketList = (props) => {
 
                 {createBucketList ? <CreateBucketList setCreateBucketList={setCreateBucketList} sessionToken={props.sessionToken} />
                 : null}
-                {!createBucketList ? <button onClick={buttonHandler}>Submit Bucket List Item!</button>: null}
+                {!createBucketList ? <button onClick={buttonHandler}>Create Bucket List Item!</button>: null}
 
-                <div className='card'>
-                    {/* <img className='card-img' /> */}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name of Place</th>
+                            <th>Location of Place</th>
+                            <th>Event of Interest</th>
+                            <th>This is a Bucket List Item Because:</th>
+                        </tr>
+                    </thead>
+            <tbody>
+                <DisplayBucketList bucketList={bucketList} />
+            </tbody>
+
+        </table>
+
+                {/* <div className='card'>
+                    <img className='card-img' /> 
                     <div className='card-body'>
                         <DisplayBucketList bucketList={bucketList} />
                         <h2 className='card-title'>nameOfPlace</h2>
@@ -50,7 +65,9 @@ const BucketList = (props) => {
                         <p className='card-description'>whyAdded</p>
                         <button className='placeLink'>Show Place</button>
                     </div>
-                </div> 
+                </div>  */}
+
+
             </div>
         </div>
     )
