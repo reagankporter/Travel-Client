@@ -42,7 +42,6 @@ const Auth = (props) => {
                 email: email,
                 password: password
             }
-          
         }
         console.log(login);
         let url = login ?
