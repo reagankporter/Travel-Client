@@ -3,7 +3,7 @@ import './auth.css';
 
 const Auth = (props) => {
 
-    const [userName, setUserName]= useState('');
+    const [username, setUsername]= useState('');
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
     const [login, setLogin]= useState(true);
@@ -15,27 +15,31 @@ const Auth = (props) => {
         setLogin(!login)
         setEmail('');
         setPassword('');
-        setUserName('');
+        setUsername('');
     }
          const signupFields = () => !login ?
          (
              <div>
-            <label htmlFor="Email">Email:</label>
+            <label htmlFor="email">Email:</label>
             <br/>
-            <input type="text" id="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
              </div>
          ) : null;
          const handleSubmit = event => {
              event.preventDefault();
             let reqBody = login ?
             {
-            userName: userName,
+                user:{
+            username: username,
             password: password,
+                }
         }:
         {
-          userName: userName,
+            user: {
+          username: username,
           email: email,
-          password: password
+          password: password,
+            }
         }
         let url = login ?
         'http://localhost:3000/user/login':
@@ -58,7 +62,7 @@ const Auth = (props) => {
             {signupFields()}
             <label htmlFor="username">User Name</label>
             <br/>
-            <input type="text" id="username" value={userName} onChange={(e) => setUserName(e.target.value)}/>
+            <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
             <br/>
             <label htmlFor="password">Password</label>
             <br/>

@@ -4,10 +4,12 @@ import Auth from './Components/Auth/Auth'
 import Footer from "./Components/Site/Footer";
 import Header from "./Components/Site/Header";
 import Sidebar from "./Components/Site/Sidebar";
+import Home from "./Components/Site/Home";
+
 import {
   BrowserRouter as Router
 } from 'react-router-dom';
-import Home from "./Components/Site/Home";
+
 
 function App() {
   const [sessionToken, setSessionToken] = useState(undefined);
@@ -40,8 +42,6 @@ function App() {
         <Sidebar />
       </Router>
       <Footer />
-      {/* <h1>This is a test</h1>
-      {sessionToken} */}
       {/* <Navbar clearLocalStorage={clearLocalStorage} /> */}
     </div>
   );
