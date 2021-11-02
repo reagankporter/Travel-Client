@@ -1,5 +1,6 @@
 import React from 'react';
-import './bucketList.css';
+import './DisplayBucketList';
+import { CardGroup, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
 
 const DisplayBucketList = (props) => {
     

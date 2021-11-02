@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './bucketList.css';
-import DisplayBucketList from './BucketList/BucketList';
+import GetBucketList from './GetBucketList/GetBucketList';
+import DisplayBucketList from './DisplayBucketList/DisplayBucketList';
 import CreateBucketList from './CreateBucketList/CreateBucketList';
 
 const BucketList = (props) => {
@@ -55,8 +56,7 @@ const BucketList = (props) => {
 
         </table>
 
-                {/* <div className='card'>
-                    <img className='card-img' /> 
+                <div className='card'>
                     <div className='card-body'>
                         <DisplayBucketList bucketList={bucketList} />
                         <h2 className='card-title'>nameOfPlace</h2>
@@ -65,7 +65,7 @@ const BucketList = (props) => {
                         <p className='card-description'>whyAdded</p>
                         <button className='placeLink'>Show Place</button>
                     </div>
-                </div>  */}
+                </div> 
 
 
             </div>

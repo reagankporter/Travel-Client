@@ -5,7 +5,7 @@ import Header from "./Components/Site/Header";
 import Home from "./Components/Site/Home";
 import Logout from "./Components/Logout/Logout";
 import Footer from "./Components/Site/Footer"
-import Sidebar from "./Components/Site/Sidebar";
+
 import {
   BrowserRouter as Router
 } from 'react-router-dom';
@@ -13,7 +13,7 @@ import {
 
 
 function App() {
-  const [sessionToken, setSessionToken] = useState(undefined);
+  const [sessionToken, setSessionToken] = useState('');
 
   useEffect(() => {
     if(localStorage.getItem('token')){
@@ -24,6 +24,7 @@ function App() {
   const updateLocalStorage = (newToken) => {
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
+    console.log(sessionToken);
   };
 
   const clearLocalStorage = () =>{
@@ -41,6 +42,7 @@ function App() {
       <Router>
       <Header clearLocalStorage={clearLocalStorage}/>
       {viewConductor()}
+
       <Footer />
      </Router>
     </div>

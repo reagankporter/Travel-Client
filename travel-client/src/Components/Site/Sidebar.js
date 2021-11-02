@@ -4,8 +4,9 @@ import {
     Switch
 } from 'react-router-dom';
 import Journals from '../Journals/Journals';
-import BucketList from '../Bucketlist/BucketList';
+import BucketList from '../BucketList/BucketList.js';
 import Weatherapp from '../App/Weather';
+
 const Sidebar = () => {
     return(
         <div className='sidebar'>
