@@ -26,6 +26,7 @@ const Auth = (props) => {
         const handleSubmit = event => {
         event.preventDefault();
             let reqBody = login ?
+
             {
                 user: {
                     username: username,
@@ -73,4 +74,3 @@ const Auth = (props) => {
         </div>
     )}
 export default Auth;
-
