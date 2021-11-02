@@ -24,10 +24,10 @@ function App() {
     setSessionToken(newToken);
   };
 
-  const clearLocalStorage = () =>{
-    localStorage.clear();
-    setSessionToken(undefined);
-  };
+  // const clearLocalStorage = () =>{
+  //   localStorage.clear();
+  //   setSessionToken(undefined);
+  // };
 
   const viewConductor = () => {
     return sessionToken !== undefined ? <Home sessionToken={sessionToken} /> : <Auth updateLocalStorage={updateLocalStorage} />;
@@ -41,6 +41,8 @@ function App() {
         <Sidebar />
       </Router>
       <Footer />
+      <h1>This is a test</h1>
+      {sessionToken}
       {/* <Navbar clearLocalStorage={clearLocalStorage} /> */}
     </div>
   );

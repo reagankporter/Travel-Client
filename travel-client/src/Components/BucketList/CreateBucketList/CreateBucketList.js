@@ -8,7 +8,7 @@ const CreateBucketList = (props) => {
     const [eventInPlace, setEventInPlace] = useState('');
     const [whyAdded, setWhyAdded] = useState('');
 
-    const postItem = (e) => {
+    const postBucketList= (e) => {
         e.preventDefault();
 
         let url = 'http://localhost:3000/bucketlist/create';
@@ -29,13 +29,13 @@ const CreateBucketList = (props) => {
         .then(response => response.json())
         .then(json => {
             console.log(json);
-            props.setItem(false);
+            props.setCreateBucketList(false);
         })
         .catch(err => console.log(err))
     };
 
     return (
-        <form onSubmit={postItem}>
+        <form onSubmit={postBucketList}>
             <input type='text' onChange={(e) => setNameOfPlace(e.target.value)} value={nameOfPlace} placeholder='Name of Place' />
             <input type='text' onChange={(e) => setLocationOfPlace(e.target.value)} value={locationOfPlace} placeholder='Location of Place' />
             <input type='text' onChange={(e) => setEventInPlace(e.target.value)} value={eventInPlace} placeholder='Event of Interest' />
