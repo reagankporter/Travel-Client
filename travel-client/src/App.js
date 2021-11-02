@@ -31,6 +31,7 @@ function App() {
     setSessionToken(undefined);
   };
 
+
   const viewConductor = () => {
     return sessionToken !== undefined ? <Home sessionToken={sessionToken} /> : <Auth updateLocalStorage={updateLocalStorage} /> ;
   };
