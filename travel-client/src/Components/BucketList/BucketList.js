@@ -33,26 +33,43 @@ const BucketList = (props) => {
     }
 
     return (
-        <>
-        {createBucketList ? <CreateBucketList setCreateBucketList={setCreateBucketList} sessionToken={props.sessionToken} />
-        : null}
-        {!createBucketList ? <button onClick={buttonHandler}>Submit Bucket List Item!</button>: null}
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Name of Place</th>
-                    <th>Location of Place</th>
-                    <th>Event of Interest</th>
-                    <th>This is a Bucket List Item Because:</th>
-                </tr>
-            </thead>
+        <div className='main'>
+            <div className='mainDiv'>
+
+                {createBucketList ? <CreateBucketList setCreateBucketList={setCreateBucketList} sessionToken={props.sessionToken} />
+                : null}
+                {!createBucketList ? <button onClick={buttonHandler}>Create Bucket List Item!</button>: null}
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name of Place</th>
+                            <th>Location of Place</th>
+                            <th>Event of Interest</th>
+                            <th>This is a Bucket List Item Because:</th>
+                        </tr>
+                    </thead>
             <tbody>
                 <DisplayBucketList bucketList={bucketList} />
             </tbody>
 
         </table>
-        </>
+
+                {/* <div className='card'>
+                    <img className='card-img' /> 
+                    <div className='card-body'>
+                        <DisplayBucketList bucketList={bucketList} />
+                        <h2 className='card-title'>nameOfPlace</h2>
+                        <h3 className='card-subtitle'>locationOfPlace</h3>
+                        <h3 className='card-subtitle'>eventOfInterest</h3>
+                        <p className='card-description'>whyAdded</p>
+                        <button className='placeLink'>Show Place</button>
+                    </div>
+                </div>  */}
+
+
+            </div>
+        </div>
     )
 
 };

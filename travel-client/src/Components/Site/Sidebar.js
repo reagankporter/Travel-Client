@@ -7,6 +7,7 @@ import Journals from '../Journals/Journals';
 import BucketList from '../Bucketlist/BucketList';
 import Weatherapp from '../App/Weather';
 
+
 const Sidebar = () => {
     return(
         <div className='sidebar'>
@@ -21,7 +22,6 @@ const Sidebar = () => {
                 <Switch>
                     <Route exact path='/journals'><Journals /></Route>
                     <Route exact path='/bucketList'><BucketList /></Route>
-                    <Route exact path='/weather'><Weatherapp /></Route>
                 </Switch>
             </div>
         </div>
