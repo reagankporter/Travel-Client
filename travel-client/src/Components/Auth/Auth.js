@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './auth.css';
 
 const Auth = (props) => {
-    console.log(props);
+    // console.log(props);
 
     const [username, setUsername]= useState('');
     const [email, setEmail]= useState('');
