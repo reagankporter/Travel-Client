@@ -76,7 +76,6 @@ const Auth = (props) => {
             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <br/>
             <button type="button" onClick={loginToggle}>Login / Signup </button>
-
             <button type="submit" onClick={handleSubmit}>Submit</button>
         </form>
         </div>
