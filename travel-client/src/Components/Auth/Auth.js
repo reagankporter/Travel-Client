@@ -26,8 +26,8 @@ const Auth = (props) => {
             <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
              </div>
          ) : null;
-         const handleSubmit = event => {
-             event.preventDefault();
+         const handleSubmit = (e) => {
+            
             let reqBody = login ?
 
             {
@@ -75,7 +75,7 @@ const Auth = (props) => {
             <br/>
             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <br/>
-            <button type="button" onClick={loginToggle}>Login / Signup </button>
+            <button type="button" onClick={loginToggle}>Login / Signup Toggle</button>
 
             <button type="submit" onClick={handleSubmit}>Submit</button>
         </form>
