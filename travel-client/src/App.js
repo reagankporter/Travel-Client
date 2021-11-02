@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import Auth from './Components/Auth/Auth'
-import Footer from "./Components/Site/Footer";
 import Header from "./Components/Site/Header";
-import Sidebar from "./Components/Site/Sidebar";
 import Home from "./Components/Site/Home";
-
+import Logout from "./Components/Logout/Logout";
+import Footer from "./Components/Site/Footer"
+import Sidebar from "./Components/Site/Sidebar";
 import {
   BrowserRouter as Router
 } from 'react-router-dom';
+
 
 
 function App() {
@@ -26,23 +27,21 @@ function App() {
   };
 
   const clearLocalStorage = () =>{
-    localStorage.clear();
+    localStorage.clear(Logout);
     setSessionToken(undefined);
   };
 
   const viewConductor = () => {
-    return sessionToken !== undefined ? <Home sessionToken={sessionToken} /> : <Auth updateLocalStorage={updateLocalStorage} />;
+    return sessionToken !== undefined ? <Home sessionToken={sessionToken} /> : <Auth updateLocalStorage={updateLocalStorage} /> ;
   };
 
   return (
     <div className="App">
-      <Header />
       <Router>
+      <Header clearLocalStorage={clearLocalStorage}/>
       {viewConductor()}
-        <Sidebar />
-      </Router>
       <Footer />
-      {/* <Navbar clearLocalStorage={clearLocalStorage} /> */}
+     </Router>
     </div>
   );
 }

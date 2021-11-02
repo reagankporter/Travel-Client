@@ -1,12 +1,12 @@
+import Weatherapp from "../App/Weather";
+import Sidebar from "./Sidebar";
 const Home = () => {
     return(
         <div className='main'>
             <div className='mainDiv'>
+                <Sidebar />
                 <h1>Travel Planning App</h1>
-
                 <hr />
-                <h1>Hello World</h1>
-                
             </div>
         </div>
     );

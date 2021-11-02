@@ -3,15 +3,16 @@ import {
     NavbarBrand, 
     Nav, 
     NavItem, 
-    NavLink
 } from 'reactstrap';
+import Logout from '../Logout/Logout';
 
-const Header = () => {
+const Header = props => {
     return(
         <header>
             <Navbar className='header'>
                 <NavbarBrand href='/'><br /><h1>Welcome To the Dynamic Travel App</h1><br /></NavbarBrand>
                 <Nav className='ml-auto' navbar>
+                    <Logout clearLocalStorage={props.clearLocalStorage}/>
                     <NavItem>
                         {/* <NavLink href='https://github.com/reagankporter/Travel-Client'>
                             GitHub Client
