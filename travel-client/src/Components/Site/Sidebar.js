@@ -12,7 +12,8 @@ import Weatherapp from '../App/Weather';
 import BucketIndex from '../BucketList/BucketListIndex.js';
 
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+
     return(
         <div className='sidebar'>
             <div className='sidebar-list-styling'>
@@ -26,11 +27,13 @@ const Sidebar = () => {
             </div>
             <div className='sidebar-route'>
                 <Switch>
-                    <Route exact path='/travel'><Destination /></Route>
-                    <Route exact path='/journals'><Journals /></Route>
-                    <Route exact path='/bucketList'><BucketList /></Route>
-                    <Route exact path='/weather'><Weatherapp /></Route>
-                    <Route exact path='/bucketIndex'><BucketIndex /></Route>
+
+                <Route exact path='/travel'><Destination /></Route>
+                <Route exact path='/journals'><Journals /></Route>
+                <Route exact path='/bucketList'><BucketList token={props.token} /></Route>
+                <Route exact path='/weather'><Weatherapp /></Route>
+                <Route exact path='/bucketIndex'><BucketIndex token={props.token} /></Route>
+
                 </Switch>
             </div>
         </div>

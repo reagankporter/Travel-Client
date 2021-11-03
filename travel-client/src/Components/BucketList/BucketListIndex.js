@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
-
-import { CardGroup, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import BucketListCreate from "./BucketListCreate";
 import BucketListTable from "./BucketListTable";
 import BucketListEdit from "./BucketListEdit";
@@ -12,17 +11,17 @@ const BucketListIndex = (props) => {
     const [bucketListToUpdate, setBucketListToUpdate] = useState({});
 
     const fetchBucketList = () => {
-        fetch('http://localhost:3000/buckelist', {
+        fetch('http://localhost:3000/bucketlist/mine', {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
-                'Authorization': props.sessionToken
+                'Authorization': `Bearer ${props.token}`
             })
         })
         .then((res) => res.json())
-        .then((bucketlistData) => {
-            setBucketList(bucketlistData)
-            console.log(bucketlistData)
+        .then((bucketListData) => {
+            setBucketList(bucketListData)
+            console.log(bucketListData)
         })
         .catch(err => console.log(err))
     }
@@ -39,41 +38,27 @@ const BucketListIndex = (props) => {
     const updateOff = () => {
         setUpdatActive(false);
     }
-
+    console.log(bucketList);
     useEffect(() => {
         fetchBucketList();
     }, [])
 
     return (
-        <div>
-            <CardGroup>
-                <Card>
-                    <BucketListCreate fetchBucketList={fetchBucketList} token={props.sessionToken} />
-                </Card>
-                <Card>
+        <Container>
+            <Row>
+                <Col md='3'>
+                    <BucketListCreate fetchBucketList={fetchBucketList} token={props.token} />
+                </Col>
+                <Col md='9'>
                     <BucketListTable bucketList={bucketList} editUpdateBucketList={editUpdateBucketList} 
-                    updateOn={updateOn} fetchBucketList={fetchBucketList} token={props.sessionToken} />
-                </Card>
+                    updateOn={updateOn} fetchBucketList={fetchBucketList} token={props.token} />
+                </Col>
+
                 {updateActive ? <BucketListEdit bucketListToUpdate={bucketListToUpdate}
-                updateOff={updateOff} token={props.sessionToken} fetchBucketList={fetchBucketList} /> : <> </> }
-                <Card>
-                    <CardImg src='' alt='' />
-                    <CardBody>
-                        <CardTitle>
-                            Card Title
-                        </CardTitle>
-                        <CardSubtitle>
-                            Card Subtitle
-                        </CardSubtitle>
-                        <CardText>
-                            Card Text Goes Here
-                        </CardText>
-                        <Button>Edit</Button>   
-                        <Button>Delete</Button> 
-                    </CardBody>
-                </Card>
-            </CardGroup>
-        </div>
+                updateOff={updateOff} token={props.token} fetchBucketList={fetchBucketList} /> : <> </> }
+            
+            </Row>
+        </Container>
     )
 
 };

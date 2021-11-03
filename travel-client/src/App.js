@@ -13,7 +13,7 @@ import {
 
 
 function App() {
-  const [sessionToken, setSessionToken] = useState('');
+  const [sessionToken, setSessionToken] = useState(undefined);
 
   useEffect(() => {
     if(localStorage.getItem('token')){
@@ -34,7 +34,7 @@ function App() {
 
 
   const viewConductor = () => {
-    return sessionToken !== undefined ? <Home sessionToken={sessionToken} /> : <Auth updateLocalStorage={updateLocalStorage} /> ;
+    return sessionToken !== undefined ? <Home token={sessionToken} /> : <Auth updateLocalStorage={updateLocalStorage} /> ;
   };
 
   return (

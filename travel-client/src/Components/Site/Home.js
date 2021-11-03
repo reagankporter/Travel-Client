@@ -3,11 +3,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Weatherapp from "../App/Weather";
 import Sidebar from "./Sidebar";
-const Home = () => {
+const Home = (props) => {
     return(
         <div className='main'>
             <div className='mainDiv'>
-                <Sidebar />
+                <Sidebar token={props.token} />
                 {/* <h1>Travel Planning App</h1>
                 <hr /> */}
             </div>

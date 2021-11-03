@@ -23,11 +23,11 @@ const Auth = (props) => {
             <br/>
             <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
 
-
             </div>
-            ) : null;
-            const handleSubmit = (e) => {
-            
+        ) : null;
+        const handleSubmit = (e) => {
+            e.preventDefault();
+
             let reqBody = login ?
 
             {
@@ -58,7 +58,8 @@ const Auth = (props) => {
         .then(data => {
             console.log(data);
             let token = data.sessionToken;
-            localStorage.setItem('SessionToken', token);
+            // localStorage.setItem('SessionToken', token);
+            props.updateLocalStorage(token);
         })
         .catch(err => console.log(err))
 }
