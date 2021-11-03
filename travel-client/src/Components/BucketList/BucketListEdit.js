@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 
 const BucketListEdit = (props) => {
-    console.log(props); 
     const [editNameOfPlace, setEditNameOfPlace] = useState(props.bucketListToUpdate.nameOfPlace);
     const [editLocationOfPlace, setEditLocationOfPlace] = useState(props.bucketListToUpdate.locationOfPlace);
     const [editEventInPlace, setEditEventInPlace] = useState(props.bucketListToUpdate.eventInPlace);
@@ -10,7 +9,7 @@ const BucketListEdit = (props) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const bucketListUpdate = (e, bucketList) => {
-        e.preventDefault();
+        
         console.log("Do the thing")
         fetch(`http://localhost:3000/bucketList/update/${props.bucketListToUpdate.id}`, {
             method: 'PUT',
