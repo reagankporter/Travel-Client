@@ -1,17 +1,36 @@
-import React from 'react';
-
+import React, {useState} from 'react';
+import {Navbar, Nav, NavItem, Button, Glyphicon, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import Weatherapp from "../App/Weather";
-import Sidebar from "./Sidebar";
+import Sidebarjs from "./Sidebar";
+
 const Home = (props) => {
+    const [modalIsVisible, setModalIsVisible] = useState(false);
+
+    // const updateOn = () => {
+    //     setIsVisible(true);
+    // }
+
+    // const updateOff = () => {
+    //     setUpdateActive(false);
+    // }
+
+    const toggleModal = () => {
+        setModalIsVisible(!modalIsVisible)
+    }
+
     return(
-        <div className='main'>
-            <div className='mainDiv'>
-                <Sidebar token={props.token} />
-                {/* <h1>Travel Planning App</h1>
-                <hr /> */}
+        <>
+        <button onClick={toggleModal}><Glyphicon glyph='menu-hamburger'/></button>
+        <Modal isVisible={modalIsVisible}>   
+            <div >
+                <Sidebarjs token={props.token} />
+                <h1>Travel Planning App</h1>
+                <hr />
             </div>
-        </div>
+        
+        </Modal>
+        </>
     );
 };
 
