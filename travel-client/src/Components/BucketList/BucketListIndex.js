@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Container, Row, Col } from 'reactstrap';
 import BucketListCreate from "./BucketListCreate";
 import BucketListTable from "./BucketListTable";
-import BucketListEdit from "./BucketListEdit";
+import BucketListEdit from './BucketListEdit';
 import './bucketList.css';
 
 
@@ -29,7 +29,6 @@ const BucketListIndex = (props) => {
 
     const editUpdateBucketList = (bucketList) => {
         setBucketListToUpdate(bucketList);
-        console.log(bucketList);
     }
 
     const updateOn = () => {
@@ -39,7 +38,7 @@ const BucketListIndex = (props) => {
     const updateOff = () => {
         setUpdateActive(false);
     }
-    console.log(bucketList);
+    // console.log(bucketList);
     useEffect(() => {
         fetchBucketList();
     }, [])
@@ -52,7 +51,7 @@ const BucketListIndex = (props) => {
                 </Col>
                 <Col md='9'>
                     <BucketListTable bucketList={bucketList} editUpdateBucketList={editUpdateBucketList} 
-                    updateOn={updateOn} fetchBucketList={fetchBucketList} token={props.token} />
+                    updateOn={updateOn} updateOff={updateOff} fetchBucketList={fetchBucketList} token={props.token} />
                 </Col>
                 
                 {/* {updateActive ? <BucketListEdit bucketListToUpdate={bucketListToUpdate} id={bucketList.id}

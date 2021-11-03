@@ -13,6 +13,9 @@ Text: #191A2E
 body {
   padding: 25px;
   background: linear-gradient(#007E61 0%, #01484C 20%, #191A2E 85%);
+  font-family: 'Patuna One', serif;
+  font-size: 20px;
+  letter-spacing: 1.5px;
 }
 
 button {
