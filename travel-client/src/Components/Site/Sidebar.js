@@ -22,7 +22,7 @@ const Sidebar = (props) => {
             <div className='sidebar-route'>
                 <Switch>
                 <Route exact path='/travel'><Destination /></Route>
-                <Route exact path='/journals'><Journals /></Route>
+                <Route exact path='/journals'><Journals token={props.token} /></Route>
                 <Route exact path='/bucketList'><BucketList token={props.token} /></Route>
                 <Route exact path='/weather'><Weatherapp /></Route>
                 </Switch>
