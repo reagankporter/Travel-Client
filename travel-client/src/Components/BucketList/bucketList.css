@@ -5,14 +5,16 @@
     margin: 1rem;
     background: transparent;
     box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border: 1px dotted #F6C401;
     border-radius: 12px;
     overflow: hidden;
     transition: all .2s linear;
+    padding: 2rem;
   }
   
   .card:hover {
     box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
-    transform: translate3D(0, -2px, 0);
+    transform: translate3D(0, -4px, 0);
   }
 
   button {
@@ -21,6 +23,7 @@
     border: 2px solid black;
     border-radius: 1em;
     font-weight: bold;
+    /* width: 6rem; */
   }
 
   button:hover {
@@ -32,6 +35,6 @@
   }
 
   label:after {
-    content: "*" ;
+    content: " *" ;
     color: red ;  
   }

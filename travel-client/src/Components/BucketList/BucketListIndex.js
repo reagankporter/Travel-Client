@@ -8,7 +8,7 @@ import './bucketList.css';
 
 const BucketListIndex = (props) => {
     const [bucketList, setBucketList] = useState([]);
-    const [updateActive, setUpdatActive] = useState(false);
+    const [updateActive, setUpdateActive] = useState(false);
     const [bucketListToUpdate, setBucketListToUpdate] = useState({});
 
     const fetchBucketList = () => {
@@ -33,11 +33,11 @@ const BucketListIndex = (props) => {
     }
 
     const updateOn = () => {
-        setUpdatActive(true);
+        setUpdateActive(true);
     }
 
     const updateOff = () => {
-        setUpdatActive(false);
+        setUpdateActive(false);
     }
     console.log(bucketList);
     useEffect(() => {
@@ -55,8 +55,8 @@ const BucketListIndex = (props) => {
                     updateOn={updateOn} fetchBucketList={fetchBucketList} token={props.token} />
                 </Col>
                 
-                {updateActive ? <BucketListEdit bucketListToUpdate={bucketListToUpdate}
-                updateOff={updateOff} token={props.token} fetchBucketList={fetchBucketList} /> : <> </> }
+                {/* {updateActive ? <BucketListEdit bucketListToUpdate={bucketListToUpdate} id={bucketList.id}
+                updateOff={updateOff} token={props.token} fetchBucketList={fetchBucketList} /> : <> </> } */}
             
             </Row>
         </Container>
