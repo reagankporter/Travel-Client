@@ -1,10 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import {
-    Route,
-    Link,
-    Switch
-} from 'react-router-dom';
+import {Route, Link, Switch} from 'react-router-dom';
 import Journals from '../Journals/Journals';
 import Destination from '../TravelSearch/travel';
 import Weatherapp from '../App/Weather';
