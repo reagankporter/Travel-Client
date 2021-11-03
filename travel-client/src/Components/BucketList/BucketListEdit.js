@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 
 const BucketListEdit = (props) => {
-    const [editNameOfPlace, setEditNameOfPlace] = useState('props.bucketListToUpdate.nameOfPlace');
-    const [editLocationOfPlace, setEditLocationOfPlace] = useState('props.bucketListToUpdate.locationOfPlace');
-    const [editEventInPlace, setEditEventInPlace] = useState('props.bucketListToUpdate.EventInPlace');
-    const [editWhyAdded, setEditWhyAdded] = useState('props.bucketListToUpdate.whyAdded');
+    const [editNameOfPlace, setEditNameOfPlace] = useState(props.bucketListToUpdate.nameOfPlace);
+    const [editLocationOfPlace, setEditLocationOfPlace] = useState(props.bucketListToUpdate.locationOfPlace);
+    const [editEventInPlace, setEditEventInPlace] = useState(props.bucketListToUpdate.eventInPlace);
+    const [editWhyAdded, setEditWhyAdded] = useState(props.bucketListToUpdate.whyAdded);
 
-    const bucketListUpdate = (e) => {
+    const bucketListUpdate = (e, bucketList) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/bucketlist/${props.bucketListToUpdate.id}`, {
+        fetch(`http://localhost:3000/bucketList/${props.bucketListToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 bucketList: {
@@ -32,11 +32,11 @@ const BucketListEdit = (props) => {
 
     return (
         <Modal isOpen={true}>
-            <ModalHeader>Edit A Bucket-List Item!</ModalHeader>
+            <ModalHeader>Edit A Bucket List Item!</ModalHeader>
             <ModalBody>
                 <Form onSubmit={bucketListUpdate}>
                     <FormGroup>
-                        Name <Label htmlFor='nameOfPlace'>Edit Name:</Label>
+                        <Label htmlFor='nameOfPlace'>Edit Name:</Label>
                         <Input name='nameOfPlace' value={editNameOfPlace} onChange={(e) => setEditNameOfPlace(e.target.value)} placeholder='Name of Place' />
                     </FormGroup>
                     <FormGroup>

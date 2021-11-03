@@ -4,7 +4,7 @@ import {Table, Button, Card, CardBody, CardTitle, CardSubtitle, CardText} from '
 const BucketListTable = (props) => {
 
     const deleteBucketList = (bucketList) => {
-        fetch(`http://localhost:3000/bucketlist/${bucketList.id}`, {
+        fetch(`http://localhost:3000/bucketList/delete/${bucketList.id}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-Type': 'application/json',
