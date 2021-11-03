@@ -21,7 +21,7 @@ const BucketListEdit = (props) => {
             }),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.sessionToken
+                'Authorization': `Bearer ${props.token}`
             })
         })
         .then((res) => {
