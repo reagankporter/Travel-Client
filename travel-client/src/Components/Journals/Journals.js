@@ -9,13 +9,13 @@ const Journals = (props) => {
   const [createJournal, setCreateJournal] = useState(false);
 
   const fetchJournals = () => {
-    let url = 'http://localhost:3000/Journals';
+    let url = 'http://localhost:3000/journals/mine';
 
     fetch(url, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': props.sessionToken
+        'Authorization': `,Bearer ${props.token}`
       })
     })
     .then(response => response.json())
@@ -33,7 +33,7 @@ const Journals = (props) => {
 
   return (
     <>
-    {createJournal ? <CreateJournal setCreateJournal={setCreateJournal} sessionToken={props.sessionToken}/>
+    {createJournal ? <CreateJournal setCreateJournal={setCreateJournal} token={props.token}/>
     : null}
     {!createJournal ? <button onClick={buttonHandler}>Create AdventureLog!</button>: null}
     

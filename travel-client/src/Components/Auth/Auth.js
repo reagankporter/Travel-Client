@@ -58,7 +58,8 @@ const Auth = (props) => {
         .then(data => {
             console.log(data);
             let token = data.sessionToken;
-            localStorage.setItem('SessionToken', token);
+            // localStorage.setItem('SessionToken', token);
+            props.updateLocalStorage(token)
         })
         .catch(err => console.log(err))
          }

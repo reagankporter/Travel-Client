@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import WeatherChild from '../App/WeatherChild/WeatherChild';
-
 class Weatherapp extends React.Component{
     constructor(props){
         super(props)
@@ -54,6 +53,7 @@ class Weatherapp extends React.Component{
             </div>
         )
     }
+
     cfSwitch (){
         if (this.state.unit === 'imperial') {
             this.state.unit = 'metric';

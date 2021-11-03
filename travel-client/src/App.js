@@ -9,10 +9,8 @@ import {
   BrowserRouter as Router
 } from 'react-router-dom';
 
-
-
 function App() {
-  const [sessionToken, setSessionToken] = useState(undefined);
+  const [sessionToken, setSessionToken] = useState('undefined');
 
   useEffect(() => {
     if(localStorage.getItem('token')){
@@ -23,6 +21,7 @@ function App() {
   const updateLocalStorage = (newToken) => {
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
+    console.log(sessionToken);
   };
   const clearLocalStorage = () =>{
     localStorage.clear(Logout);
@@ -30,7 +29,7 @@ function App() {
   };
 
   const viewConductor = () => {
-    return sessionToken !== undefined ? <Home sessionToken={sessionToken} /> : <Auth updateLocalStorage={updateLocalStorage} /> ;
+    return (sessionToken !== undefined ? <Home token={sessionToken} /> : <Auth updateLocalStorage={updateLocalStorage} />) ;
   };
 
   return (
@@ -38,6 +37,7 @@ function App() {
       <Router>
       <Header clearLocalStorage={clearLocalStorage}/>
       {viewConductor()}
+
       <Footer />
      </Router>
     </div>
