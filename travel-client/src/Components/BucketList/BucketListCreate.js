@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { Form, FormGroup, Label, Input } from 'reactstrap';
-import { CardGroup, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
+import React, {useState} from "react";
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 const BucketListCreate = (props) => {
     const [nameOfPlace, setNameOfPlace] = useState('');
@@ -22,7 +21,7 @@ const BucketListCreate = (props) => {
             }),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.sessionToken
+                'Authorization': `Bearer ${props.token}`
             })
         })
         .then((res) => res.json())
