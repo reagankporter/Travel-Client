@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-import WeatherChild from '../app/WeatherChild/WeatherChild';
+import WeatherChild from '../App/WeatherChild/WeatherChild';
 
 class Weatherapp extends React.Component{
     constructor(props){
@@ -48,7 +48,7 @@ class Weatherapp extends React.Component{
         return(
             <div className='main'>
                 <div className='mainDiv' style={{textAlign:'center'}}>
-                <Button color='primary' size='lg' onClick ={()=>this.cfSwitch()} >'Merica/Cel</Button>{''}
+                <Button color='primary' size='lg' onClick ={()=>this.cfSwitch()} >Far/Cel</Button>{''}
                 <WeatherChild city={this.state.city} main={this.state.main} weather={this.state.weather} time={this.state.time} unit={this.state.unit} />
                 </div>
             </div>
