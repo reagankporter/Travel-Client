@@ -61,7 +61,7 @@ const Auth = (props) => {
             // localStorage.setItem('SessionToken', token);
             props.updateLocalStorage(token);
         })
-        .catch(err => console.log(err))
+        .catch((err) => console.log(err))
          }
     return(
         <div>
