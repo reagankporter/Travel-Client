@@ -5,8 +5,8 @@ const Home = () => {
         <div className='main'>
             <div className='mainDiv'>
                 <Sidebar />
-                <h1>Travel Planning App</h1>
-                <hr />
+                {/* <h1>Travel Planning App</h1>
+                <hr /> */}
             </div>
         </div>
     );
