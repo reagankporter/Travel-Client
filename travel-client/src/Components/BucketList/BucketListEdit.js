@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 
 const BucketListEdit = (props) => {
-    const [editNameOfPlace, setEditNameOfPlace] = useState('props.bucketListToUpdate.nameOfPlace');
-    const [editLocationOfPlace, setEditLocationOfPlace] = useState('props.bucketListToUpdate.locationOfPlace');
-    const [editEventInPlace, setEditEventInPlace] = useState('props.bucketListToUpdate.EventInPlace');
-    const [editWhyAdded, setEditWhyAdded] = useState('props.bucketListToUpdate.whyAdded');
+    const [editNameOfPlace, setEditNameOfPlace] = useState(props.bucketListToUpdate.nameOfPlace);
+    const [editLocationOfPlace, setEditLocationOfPlace] = useState(props.bucketListToUpdate.locationOfPlace);
+    const [editEventInPlace, setEditEventInPlace] = useState(props.bucketListToUpdate.EventInPlace);
+    const [editWhyAdded, setEditWhyAdded] = useState(props.bucketListToUpdate.whyAdded);
 
     const bucketListUpdate = (e) => {
         e.preventDefault();

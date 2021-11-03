@@ -42,8 +42,8 @@ const Auth = (props) => {
         }
         console.log(login);
         let url = login ?
-        'http://localhost:3001/user/login':
-        'http://localhost:3001/user/register';
+        'http://localhost:3000/user/login':
+        'http://localhost:3000/user/register';
         fetch(url,{
             method: 'POST',
             body: JSON.stringify(reqBody),

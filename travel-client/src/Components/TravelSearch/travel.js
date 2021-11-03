@@ -25,8 +25,12 @@ function CheckResponse({ data }) {
         {data.data.attributes.top_cities_and_towns[3].name}
         <br/>
         {data.data.attributes.top_cities_and_towns[4].name}</p>
-        <p>Available Airbnb's: <a>{data.data.attributes.airbnb_url}</a></p>
-        <p>For More Info: {data.data.attributes.wikipedia_url}</p>
+        <p>
+            <a href={data.data.attributes.airbnb_url} target="_blank"><button>Available Airbnb's</button></a>
+        </p>
+        <p>
+            <a href={data.data.attributes.wikipedia_url} target="_blank"><button>More Info</button></a>            
+        </p>
     </div>
     );
 }
