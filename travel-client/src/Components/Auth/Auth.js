@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import './auth.css';
-
 const Auth = (props) => {
-    console.log(props);
-
+    // console.log(props);
     const [username, setUsername]= useState('');
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
@@ -26,10 +24,9 @@ const Auth = (props) => {
             <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
              </div>
          ) : null;
-         const handleSubmit = event => {
-             event.preventDefault();
+         const handleSubmit = (e) => {
+            e.preventDefault();
             let reqBody = login ?
-
             {
                 user: {
                     username: username,
@@ -45,8 +42,8 @@ const Auth = (props) => {
         }
         console.log(login);
         let url = login ?
-        'http://localhost:3000/user/login':
-        'http://localhost:3000/user/register';
+        'http://localhost:3001/user/login':
+        'http://localhost:3001/user/register';
         fetch(url,{
             method: 'POST',
             body: JSON.stringify(reqBody),
@@ -59,9 +56,9 @@ const Auth = (props) => {
             console.log(data);
             let token = data.sessionToken;
             // localStorage.setItem('SessionToken', token);
-            props.updateLocalStorage(token)
+            props.updateLocalStorage(token);
         })
-        .catch(err => console.log(err))
+        .catch((err) => console.log(err))
          }
     return(
         <div>
@@ -76,9 +73,13 @@ const Auth = (props) => {
             <br/>
             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <br/>
-            <button type="button" onClick={loginToggle}>Login / Signup </button>
+            <button type="button" onClick={loginToggle}>Login / Signup Toggle</button>
             <button type="submit" onClick={handleSubmit}>Submit</button>
         </form>
         </div>
     )}
 export default Auth;
+
+
+
+

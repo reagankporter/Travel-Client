@@ -15,6 +15,21 @@ body {
   background: linear-gradient(#007E61 0%, #01484C 20%, #191A2E 85%);
 }
 
+button {
+  background-color: #F6C401;
+  color: #191A2E;
+  border: 2px solid black;
+  border-radius: 1em;
+}
+
+button:hover {
+  background-color: transparent;
+  color: #F6C401;
+  border: 2px solid #F6C401;
+  box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+  transform: translate3D(0, -2px, 0);
+}
+
 
 /* FOOTER */
 footer {

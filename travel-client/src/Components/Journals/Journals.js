@@ -4,18 +4,18 @@ import DisplayJournals from './Journal/Journal';
 import CreateJournal from './CreateJournal/CreateJournal';
 
 const Journals = (props) => {
-  console.log(props)
+  console.log(props.token)
   const [journals, setJournals] = useState([]);
   const [createJournal, setCreateJournal] = useState(false);
 
-  const fetchJournals = () => {
-    let url = 'http://localhost:3000/journals/mine';
+  const fetchJournals = (props) => {
+    let url = 'http://localhost:3001/journals/mine';
 
     fetch(url, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': `,Bearer ${props.token}`
+        'Authorization': `Bearer ${props.token}`
       })
     })
     .then(response => response.json())
@@ -23,10 +23,12 @@ const Journals = (props) => {
     .catch(err => console.log(err))
   }
   console.log(journals)
-  useEffect(() => {
-    fetchJournals();
-  },[createJournal])
-
+  // useEffect(() => {
+  //   fetchJournals();
+  // },[])
+  const buttonHandlerf = () => {
+    fetchJournals(true)
+  }
   const buttonHandler = () => {
     setCreateJournal(true)
   }

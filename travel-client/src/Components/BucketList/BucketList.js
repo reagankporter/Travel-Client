@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import Radium from 'radium'
 import './bucketList.css';
-import GetBucketList from './GetBucketList/GetBucketList';
+
 import DisplayBucketList from './DisplayBucketList/DisplayBucketList';
 import CreateBucketList from './CreateBucketList/CreateBucketList';
 

@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 
 function App() {
-  const [sessionToken, setSessionToken] = useState('undefined');
+  const [sessionToken, setSessionToken] = useState(undefined);
 
   useEffect(() => {
     if(localStorage.getItem('token')){
@@ -21,7 +21,7 @@ function App() {
   const updateLocalStorage = (newToken) => {
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
-    console.log(sessionToken);
+    console.log(newToken);
   };
   const clearLocalStorage = () =>{
     localStorage.clear(Logout);
@@ -37,7 +37,6 @@ function App() {
       <Router>
       <Header clearLocalStorage={clearLocalStorage}/>
       {viewConductor()}
-
       <Footer />
      </Router>
     </div>

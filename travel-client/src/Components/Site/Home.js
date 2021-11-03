@@ -1,11 +1,13 @@
+import React from 'react';
 import Sidebar from "./Sidebar";
-const Home = () => {
+const Home = (props) => {
+    console.log(props.token, "this is home")
     return(
         <div className='main'>
             <div className='mainDiv'>
-            <h1>Travel Planning App</h1>
-                <Sidebar />
-                <hr />
+                <Sidebar token={props.token} />
+                {/* <h1>Travel Planning App</h1>
+                <hr /> */}
             </div>
         </div>
     );
