@@ -2,14 +2,17 @@ import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 
 const BucketListEdit = (props) => {
+    console.log(props); 
     const [editNameOfPlace, setEditNameOfPlace] = useState(props.bucketListToUpdate.nameOfPlace);
     const [editLocationOfPlace, setEditLocationOfPlace] = useState(props.bucketListToUpdate.locationOfPlace);
     const [editEventInPlace, setEditEventInPlace] = useState(props.bucketListToUpdate.eventInPlace);
     const [editWhyAdded, setEditWhyAdded] = useState(props.bucketListToUpdate.whyAdded);
+    const [modalOpen, setModalOpen] = useState(false);
 
     const bucketListUpdate = (e, bucketList) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/bucketList/${props.bucketListToUpdate.id}`, {
+        console.log("Do the thing")
+        fetch(`http://localhost:3000/bucketList/update/${props.bucketListToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 bucketList: {
@@ -25,13 +28,21 @@ const BucketListEdit = (props) => {
             })
         })
         .then((res) => {
+            console.log(res)
             props.fetchBucketList();
             props.updateOff();
         })
     }
 
+    const toggleModal = () => {
+        setModalOpen(!modalOpen)
+    }
+
+
     return (
-        <Modal isOpen={true}>
+        <>
+        <button onClick={toggleModal}>Edit</button>
+        <Modal isOpen={modalOpen}>
             <ModalHeader>Edit A Bucket List Item!</ModalHeader>
             <ModalBody>
                 <Form onSubmit={bucketListUpdate}>
@@ -55,6 +66,7 @@ const BucketListEdit = (props) => {
                 </Form>
             </ModalBody>
         </Modal>
+        </>
     )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Table, Button, Card, CardBody, CardTitle, CardSubtitle, CardText} from 'reactstrap';
+import BucketListEdit from './BucketListEdit';
 
 const BucketListTable = (props) => {
 
@@ -27,8 +28,9 @@ const BucketListTable = (props) => {
                                 <CardSubtitle>{bucketList.locationOfPlace}</CardSubtitle>
                                 <CardText>{bucketList.eventInPlace} <br/> {bucketList.whyAdded}</CardText>
                                 <td>
-                                    <Button onClick={() => {props.editUpdateBucketList(); props.updateOn()}}>Edit</Button>   
-                                    <Button onClick={() => {deleteBucketList()}}>Delete</Button> 
+                                    <BucketListEdit token={props.token} bucketListToUpdate={bucketList}/>
+                                    {/* <Button onClick={() => {props.editUpdateBucketList(); props.updateOn()}}>Edit</Button>    */}
+                                    <Button onClick={() => {deleteBucketList(bucketList)}}>Delete</Button> 
                                 </td>
                             </CardBody>
                         </Card>
