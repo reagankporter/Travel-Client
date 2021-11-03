@@ -29,7 +29,7 @@ function CheckResponse({ data }) {
             <a href={data.data.attributes.airbnb_url} target="_blank"><button>Available Airbnb's</button></a>
         </p>
         <p>
-            <a href={data.data.attributes.wikipedia_url} target="_blank"><button>More Info</button></a>            
+            <a href={data.data.attributes.wikipedia_url} target="_blank"><button>More Info</button></a>             
         </p>
     </div>
     );

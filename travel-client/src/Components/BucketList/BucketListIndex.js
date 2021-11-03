@@ -55,8 +55,8 @@ const BucketListIndex = (props) => {
                     updateOn={updateOn} fetchBucketList={fetchBucketList} token={props.token} />
                 </Col>
                 
-                {updateActive ? <BucketListEdit bucketListToUpdate={bucketListToUpdate}
-                updateOff={updateOff} token={props.token} fetchBucketList={fetchBucketList} /> : <> </> }
+                {/* {updateActive ? <BucketListEdit bucketListToUpdate={bucketListToUpdate} id={bucketList.id}
+                updateOff={updateOff} token={props.token} fetchBucketList={fetchBucketList} /> : <> </> } */}
             
             </Row>
         </Container>

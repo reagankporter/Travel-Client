@@ -2,13 +2,16 @@ import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 
 const JournalEdit = (props) => {
+    console.log(props)
     const [editTitle, setEditTitle] = useState(props.journalToUpdate.title);
     const [editDate, setEditDate] = useState(props.journalToUpdate.date);
     const [editEntry, setEditEntry] = useState(props.journalToUpdate.entry);
     const [editRating, setEditRating] = useState(props.journalToUpdate.rating);
     const [modalOpen, setModalOpen] = useState(false)
+
     const journalUpdate = (e, journal) => {
-        e.preventDefault();
+
+        console.log('Test here to Journal update')
         fetch(`http://localhost:3000/journal/update/${props.journalToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({
@@ -36,7 +39,7 @@ const toggleModal = () => {
 
     return (
         <>
-        <button onClick={() => toggleModal}>Edit</button>
+        <button onClick={toggleModal}>Edit</button>
         <Modal isOpen={modalOpen}>
             <ModalHeader>Edit Adventure Log</ModalHeader>
             <ModalBody>

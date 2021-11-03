@@ -22,7 +22,6 @@ const Journals = (props) => {
         .then((res) => res.json())
         .then((journalData) => {
             setJournal(journalData)
-            console.log(journalData)
         })
         .catch(err => console.log(err))
     }
@@ -39,7 +38,6 @@ const Journals = (props) => {
     const updateOff = () => {
         setUpdateActive(false);
     }
-    console.log(journal);
     useEffect(() => {
         fetchJournal();
     }, [])

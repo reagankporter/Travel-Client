@@ -1,8 +1,5 @@
-import {
-    Route,
-    Link,
-    Switch
-} from 'react-router-dom';
+import React, {useState} from 'react';
+import {Route, Link, Switch} from 'react-router-dom';
 import Journals from '../Journals/Journals';
 import Weatherapp from '../App/Weather';
 import BucketList from '../Bucketlist/BucketListIndex'
@@ -21,10 +18,10 @@ const Sidebar = (props) => {
             </div>
             <div className='sidebar-route'>
                 <Switch>
-                   <Route exact path='/journals'><Journals token={props.token}/></Route>
-                   <Route exact path='/bucketList'><BucketList token={props.token} /></Route>
-                   <Route exact path='/weather'><Weatherapp token={props.toke} /></Route>
-                   <Route exact path='/travel'><Destination /></Route>
+                <Route exact path='/travel'><Destination /></Route>
+                <Route exact path='/journals'><Journals token={props.token} /></Route>
+                <Route exact path='/bucketList'><BucketList token={props.token} /></Route>
+                <Route exact path='/weather'><Weatherapp /></Route>
                 </Switch>
             </div>
         </div>
