@@ -1,3 +1,6 @@
+import React from 'react';
+
+import {Link} from 'react-router-dom';
 import Weatherapp from "../App/Weather";
 import Sidebar from "./Sidebar";
 const Home = (props) => {
