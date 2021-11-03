@@ -40,7 +40,7 @@ const BucketListCreate = (props) => {
             <h3>Add A Bucket-List Item!</h3>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    Name <Label htmlFor='nameOfPlace' />
+                    <Label htmlFor='nameOfPlace' />
                     <Input name='nameOfPlace' value={nameOfPlace} onChange={(e) => setNameOfPlace(e.target.value)} placeholder='Name of Place' />
                 </FormGroup>
                 <FormGroup>
