@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import BucketListCreate from "./BucketListCreate";
 import BucketListTable from "./BucketListTable";
 import BucketListEdit from "./BucketListEdit";
+import './bucketList.css';
 
 
 const BucketListIndex = (props) => {
@@ -53,7 +54,7 @@ const BucketListIndex = (props) => {
                     <BucketListTable bucketList={bucketList} editUpdateBucketList={editUpdateBucketList} 
                     updateOn={updateOn} fetchBucketList={fetchBucketList} token={props.token} />
                 </Col>
-
+                
                 {updateActive ? <BucketListEdit bucketListToUpdate={bucketListToUpdate}
                 updateOff={updateOff} token={props.token} fetchBucketList={fetchBucketList} /> : <> </> }
             

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Table, Button} from 'reactstrap';
+import {Table, Button, Card, CardBody, CardTitle, CardSubtitle, CardText} from 'reactstrap';
 
 const BucketListTable = (props) => {
 
@@ -18,18 +18,21 @@ const BucketListTable = (props) => {
         return props.bucketList.map((bucketList, index) => {
             return (
                 <div>
-                    <h3>Bucket List</h3>
-                    <hr />
+                    
                     <tr key={index}>
-                        <th scope='row'>{bucketList.id}</th>
-                        <td>{bucketList.nameOfPlace}</td>
-                        <td>{bucketList.locationOfPlace}</td>
-                        <td>{bucketList.eventInPlacet}</td>
-                        <td>{bucketList.whyAdded}</td>
-                        <td>
-                            <Button onClick={() => {props.editUpdateBucketList(); props.updateOn()}}>Edit</Button>   
-                            <Button onClick={() => {deleteBucketList()}}>Delete</Button> 
-                        </td>
+
+                        <Card>
+                            <CardBody>
+                                <CardTitle>{bucketList.nameOfPlace}</CardTitle>
+                                <CardSubtitle>{bucketList.locationOfPlace}</CardSubtitle>
+                                <CardText>{bucketList.eventInPlace} <br/> {bucketList.whyAdded}</CardText>
+                                <td>
+                                    <Button onClick={() => {props.editUpdateBucketList(); props.updateOn()}}>Edit</Button>   
+                                    <Button onClick={() => {deleteBucketList()}}>Delete</Button> 
+                                </td>
+                            </CardBody>
+                        </Card>
+
                     </tr>
                 </div>
             )
@@ -42,15 +45,6 @@ const BucketListTable = (props) => {
             <h3>Bucket List</h3>
             <hr />
             <Table striped>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name of Place</th>
-                        <th>Location</th>
-                        <th>Event of Interest</th>
-                        <th>Why</th>
-                    </tr>
-                </thead>
                 <tbody>
                     {bucketListMapper()}
                 </tbody>

@@ -9,7 +9,7 @@ const BucketListCreate = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3000/bucketlist/', {
+        fetch('http://localhost:3000/bucketlist/create', {
             method: 'POST',
             body: JSON.stringify({
                 bucketList: {
