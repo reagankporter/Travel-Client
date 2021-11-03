@@ -5,7 +5,7 @@ import Header from "./Components/Site/Header";
 import Home from "./Components/Site/Home";
 import Logout from "./Components/Logout/Logout";
 import Footer from "./Components/Site/Footer"
-
+import Sidebar from "./Components/Site/Sidebar";
 import {
   BrowserRouter as Router
 } from 'react-router-dom';
@@ -44,7 +44,7 @@ function App() {
       {viewConductor()}
 
       <Footer />
-     </Router>
+    </Router>
     </div>
   );
 }
