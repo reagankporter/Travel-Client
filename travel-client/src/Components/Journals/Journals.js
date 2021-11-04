@@ -45,10 +45,12 @@ const Journals = (props) => {
     return (
         <Container>
             <Row>
-                <Col md='3'>
+                <Col >
                     <JournalCreate fetchJournal={fetchJournal} token={props.token} />
+                    {/* <JournalTable journal={journal} editUpdateJournal={editUpdateJournal} 
+                    updateOn={updateOn} fetchJournal={fetchJournal} token={props.token} /> */}
                 </Col>
-                <Col md='9'>
+                <Col >
                     <JournalTable journal={journal} editUpdateJournal={editUpdateJournal} 
                     updateOn={updateOn} fetchJournal={fetchJournal} token={props.token} />
                 </Col>

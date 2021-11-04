@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 
 const JournalEdit = (props) => {
-    console.log(props)
     const [editTitle, setEditTitle] = useState(props.journalToUpdate.title);
     const [editDate, setEditDate] = useState(props.journalToUpdate.date);
     const [editEntry, setEditEntry] = useState(props.journalToUpdate.entry);
@@ -10,7 +9,7 @@ const JournalEdit = (props) => {
     const [modalOpen, setModalOpen] = useState(false)
 
     const journalUpdate = (e, journal) => {
-
+         
         console.log('Test here to Journal update')
         fetch(`http://localhost:3000/journal/update/${props.journalToUpdate.id}`, {
             method: 'PUT',
@@ -28,6 +27,7 @@ const JournalEdit = (props) => {
             })
         })
         .then((res) => {
+            console.log(res)
             props.fetchJournal();
             props.updateOff();
         })
@@ -45,7 +45,7 @@ const toggleModal = () => {
             <ModalBody>
                 <Form onSubmit={journalUpdate}>
                     <FormGroup>
-                        Name <Label htmlFor='Title'>Edit Title:</Label>
+                        <Label htmlFor='Title'>Edit Title:</Label>
                         <Input name='Title' value={editTitle} onChange={(e) => setEditTitle(e.target.value)} placeholder='Title' />
                     </FormGroup>
                     <FormGroup>

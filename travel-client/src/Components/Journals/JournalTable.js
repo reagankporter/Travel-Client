@@ -7,7 +7,7 @@ const JournalTable = (props) => {
     const [updateActive, setUpdateActive] = useState(false);
 
     const deleteJournal = (journal) => {
-        fetch(`http://localhost:3000/journal/delete/${journal.id}`, {
+        fetch(`http://localhost:3000/journal/${journal.id}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-Type': 'application/json',
