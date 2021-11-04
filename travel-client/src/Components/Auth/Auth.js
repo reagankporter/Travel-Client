@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './auth.css';
 const Auth = (props) => {
-    console.log(props);
+    // console.log(props);
     const [username, setUsername]= useState('');
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
@@ -16,20 +16,17 @@ const Auth = (props) => {
         setPassword('');
         setUsername('');
     }
-            const signupFields = () => !login ?
-            (
-            <div>
+         const signupFields = () => !login ?
+         (
+             <div>
             <label htmlFor="email">Email:</label>
             <br/>
             <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-
-            </div>
-        ) : null;
-        const handleSubmit = (e) => {
+             </div>
+         ) : null;
+         const handleSubmit = (e) => {
             e.preventDefault();
-
             let reqBody = login ?
-
             {
                 user: {
                     username: username,
@@ -61,7 +58,6 @@ const Auth = (props) => {
             // localStorage.setItem('SessionToken', token);
             props.updateLocalStorage(token);
         })
-
         .catch((err) => console.log(err))
          }
     return(
@@ -78,9 +74,12 @@ const Auth = (props) => {
             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <br/>
             <button type="button" onClick={loginToggle}>Login / Signup Toggle</button>
-
             <button type="submit" onClick={handleSubmit}>Submit</button>
         </form>
         </div>
     )}
 export default Auth;
+
+
+
+

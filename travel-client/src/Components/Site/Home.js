@@ -4,7 +4,7 @@ import Weatherapp from "../App/Weather";
 import Sidebar from "./Sidebar";
 
 const Home = (props) => {
-
+    console.log(props.token, "this is home")
     return(
         <>
             <div >

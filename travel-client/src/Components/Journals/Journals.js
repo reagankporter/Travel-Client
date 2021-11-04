@@ -1,57 +1,65 @@
-import React, {useState, useEffect} from 'react';
-import './journals.css';
-import DisplayJournals from './Journal/Journal';
-import CreateJournal from './CreateJournal/CreateJournal';
+import React, {useState, useEffect} from "react";
+import { Container, Row, Col } from 'reactstrap';
+import JournalCreate from './JournalCreate';
+import JournalTable from './JournalTable'
+import JournalEdit from './JournalEdit';
+import './journals.css'
+
 
 const Journals = (props) => {
-  console.log(props)
-  const [journals, setJournals] = useState([]);
-  const [createJournal, setCreateJournal] = useState(false);
+    const [journal, setJournal] = useState([]);
+    const [updateActive, setUpdateActive] = useState(false);
+    const [journalToUpdate, setJournalToUpdate] = useState({});
 
-  const fetchJournals = () => {
-    let url = 'http://localhost:3000/Journals';
+    const fetchJournal = () => {
+        fetch('http://localhost:3000/journal/mine', {
+            method: 'GET',
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${props.token}`
+            })
+        })
+        .then((res) => res.json())
+        .then((journalData) => {
+            setJournal(journalData)
+        })
+        .catch(err => console.log(err))
+    }
 
-    fetch(url, {
-      method: 'GET',
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        'Authorization': props.sessionToken
-      })
-    })
-    .then(response => response.json())
-    .then(json => setJournals(json))
-    .catch(err => console.log(err))
-  }
-  console.log(journals)
-  useEffect(() => {
-    fetchJournals();
-  },[createJournal])
+    const editUpdateJournal = (journal) => {
+        setJournalToUpdate(journal);
+        console.log(journal);
+    }
 
-  const buttonHandler = () => {
-    setCreateJournal(true)
-  }
+    const updateOn = () => {
+        setUpdateActive(true);
+    }
 
-  return (
-    <>
-    {createJournal ? <CreateJournal setCreateJournal={setCreateJournal} sessionToken={props.sessionToken}/>
-    : null}
-    {!createJournal ? <button onClick={buttonHandler}>Create AdventureLog!</button>: null}
-    
-    <table>
-      <thead>
-        <tr>
-          <th>Title of Journals</th>
-          <th>Date</th>
-          <th>Entry</th>
-          <th>Rating</th>
-        </tr>
-      </thead>
-      <tbody>
-        <DisplayJournals journals={journals} />
-      </tbody>
-    </table>
-    </>
-  )
-}
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
+    useEffect(() => {
+        fetchJournal();
+    }, [])
+
+    return (
+        <Container>
+            <Row>
+                <Col >
+                    <JournalCreate fetchJournal={fetchJournal} token={props.token} />
+                    {/* <JournalTable journal={journal} editUpdateJournal={editUpdateJournal} 
+                    updateOn={updateOn} fetchJournal={fetchJournal} token={props.token} /> */}
+                </Col>
+                <Col >
+                    <JournalTable journal={journal} editUpdateJournal={editUpdateJournal} 
+                    updateOn={updateOn} fetchJournal={fetchJournal} token={props.token} />
+                </Col>
+                {/* {updateActive ? <JournalEdit journalToUpdate={journalToUpdate} id={journal.id}
+                updateOff={updateOff} token={props.token} fetchJournal={fetchJournal} /> : <> </> } */}
+            </Row>
+        </Container>
+    )
+
+};
 
 export default Journals;
