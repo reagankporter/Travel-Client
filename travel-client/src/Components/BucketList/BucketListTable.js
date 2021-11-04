@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Table, Button, Card, CardBody, CardTitle, CardSubtitle, CardText } from 'reactstrap';
+import { Table, Button, Card, CardBody, CardTitle, CardSubtitle, CardText, CardGroup } from 'reactstrap';
 import BucketListEdit from './BucketListEdit';
 
 const BucketListTable = (props) => {
@@ -44,14 +44,16 @@ const BucketListTable = (props) => {
         return props.bucketList.map((bucketList, index) => {
             return (
                 <div>
-
+                    <CardGroup>
                     <tr key={index}>
 
                         <Card>
                             <CardBody>
-                                <CardTitle>{bucketList.nameOfPlace}</CardTitle>
-                                <CardSubtitle>{bucketList.locationOfPlace}</CardSubtitle>
-                                <CardText>{bucketList.eventInPlace} <br /> {bucketList.whyAdded}</CardText>
+                                <CardTitle tag='h3'>Place: {bucketList.nameOfPlace}</CardTitle>
+                                <hr/>
+                                <CardSubtitle className='mb-2 text-muted' tag='h4'>Location: {bucketList.locationOfPlace}</CardSubtitle>
+                                <CardText>Event: {bucketList.eventInPlace}</CardText>
+                                <CardText>Why: {bucketList.whyAdded}</CardText>
                                 <td>
                                     <BucketListEdit updateOff={updateOff} token={props.token} fetchBucketList={fetchBucketList} bucketListToUpdate={bucketList} />
                                     <Button onClick={() => { deleteBucketList(bucketList) }}>Delete</Button>
@@ -60,6 +62,7 @@ const BucketListTable = (props) => {
                         </Card>
 
                     </tr>
+                    </CardGroup>
                 </div>
             )
 
